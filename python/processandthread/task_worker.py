@@ -22,7 +22,8 @@ m.connect()
 task = m.get_task_queue()
 result = m.get_result_queue()
 # 从task队列取任务,并把结果写入result队列:
-for i in range(10):
+# task.qsize() 为队列中的任务数量。若为多台电脑处理计算任务。一般要限制单台电脑处理任务的数量
+for i in range(task.qsize()):
     try:
         n = task.get(timeout=1)
         print('run task %d * %d...' % (n, n))
