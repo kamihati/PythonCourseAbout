@@ -52,7 +52,7 @@ if __name__ == "__main__":
     
     # 删除刚刚写入的数据并返回影响行数
     print('delete new data')
-    del_row_count = cursor.execute("DELETE FROM tb_course WHERE cname='测试课程1'")
+    del_row_count = cursor.execute("DELETE FROM tb_course WHERE cname=%s", '测试课程1')
     conn.commit()
     print('del row count=', del_row_count)
 
