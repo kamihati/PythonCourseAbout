@@ -1,0 +1,40 @@
+2018-08-24  16:12:55 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py msg1 
+2018-08-24  16:12:55 Fri  root INFO /Users/kamihati/workspace/course/python/first/error1.py msg2 
+2018-08-24  16:12:55 Fri  root WARNING /Users/kamihati/workspace/course/python/first/error1.py msg3 
+2018-08-24  16:12:55 Fri  root ERROR /Users/kamihati/workspace/course/python/first/error1.py msg4 
+2018-08-24  16:12:55 Fri  root CRITICAL /Users/kamihati/workspace/course/python/first/error1.py msg5 
+2018-08-24  16:14:59 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py msg1 
+2018-08-24  16:14:59 Fri  root INFO /Users/kamihati/workspace/course/python/first/error1.py msg2 
+2018-08-24  16:14:59 Fri  root WARNING /Users/kamihati/workspace/course/python/first/error1.py msg3 
+2018-08-24  16:14:59 Fri  root ERROR /Users/kamihati/workspace/course/python/first/error1.py msg4 
+2018-08-24  16:14:59 Fri  root CRITICAL /Users/kamihati/workspace/course/python/first/error1.py msg5 
+2018-08-24  16:15:37 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py integer division or modulo by zero 
+2018-08-24  16:15:37 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py msg1 
+2018-08-24  16:15:37 Fri  root INFO /Users/kamihati/workspace/course/python/first/error1.py msg2 
+2018-08-24  16:15:37 Fri  root WARNING /Users/kamihati/workspace/course/python/first/error1.py msg3 
+2018-08-24  16:15:37 Fri  root ERROR /Users/kamihati/workspace/course/python/first/error1.py msg4 
+2018-08-24  16:15:37 Fri  root CRITICAL /Users/kamihati/workspace/course/python/first/error1.py msg5 
+2018-08-24  16:16:42 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py \n integer division or modulo by zero 
+2018-08-24  16:16:42 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py \n msg1 
+2018-08-24  16:16:42 Fri  root INFO /Users/kamihati/workspace/course/python/first/error1.py \n msg2 
+2018-08-24  16:16:42 Fri  root WARNING /Users/kamihati/workspace/course/python/first/error1.py \n msg3 
+2018-08-24  16:16:42 Fri  root ERROR /Users/kamihati/workspace/course/python/first/error1.py \n msg4 
+2018-08-24  16:16:42 Fri  root CRITICAL /Users/kamihati/workspace/course/python/first/error1.py \n msg5 
+2018-08-24  16:16:54 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py 
+ integer division or modulo by zero 
+2018-08-24  16:16:54 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py 
+ msg1 
+2018-08-24  16:16:54 Fri  root INFO /Users/kamihati/workspace/course/python/first/error1.py 
+ msg2 
+2018-08-24  16:16:54 Fri  root WARNING /Users/kamihati/workspace/course/python/first/error1.py 
+ msg3 
+2018-08-24  16:16:54 Fri  root ERROR /Users/kamihati/workspace/course/python/first/error1.py 
+ msg4 
+2018-08-24  16:16:54 Fri  root CRITICAL /Users/kamihati/workspace/course/python/first/error1.py 
+ msg5 
+2018-08-24  16:17:18 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py integer division or modulo by zero 
+2018-08-24  16:17:18 Fri  root DEBUG /Users/kamihati/workspace/course/python/first/error1.py msg1 
+2018-08-24  16:17:18 Fri  root INFO /Users/kamihati/workspace/course/python/first/error1.py msg2 
+2018-08-24  16:17:18 Fri  root WARNING /Users/kamihati/workspace/course/python/first/error1.py msg3 
+2018-08-24  16:17:18 Fri  root ERROR /Users/kamihati/workspace/course/python/first/error1.py msg4 
+2018-08-24  16:17:18 Fri  root CRITICAL /Users/kamihati/workspace/course/python/first/error1.py msg5 
