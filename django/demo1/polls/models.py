@@ -4,4 +4,5 @@ from django.db import models
 
 
 class PollMan(models.Model):
-    name = models.IntegerField()
+    name = models.CharField(length=50)
+    age = models.IntegerField()

@@ -1,0 +1,55 @@
+[2018-09-02 11:46:10,458][Thread-1:123145512325120][task_id:django.request][log.py:228][ERROR][Internal Server Error: /polls/]
+Traceback (most recent call last):
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/kamihati/workspace/course/django/dj_1/polls/views.py", line 17, in index
+    y = 10 / x
+ZeroDivisionError: division by zero
+[2018-09-02 11:51:00,676][Thread-1:123145527865344][task_id:django.request][log.py:228][ERROR][Internal Server Error: /polls/]
+Traceback (most recent call last):
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/kamihati/workspace/course/django/dj_1/polls/views.py", line 16, in index
+    y = 10 / x
+ZeroDivisionError: division by zero
+[2018-09-02 11:51:21,036][Thread-4:123145527865344][task_id:django.request][log.py:228][ERROR][Internal Server Error: /polls/]
+Traceback (most recent call last):
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/kamihati/workspace/course/django/dj_1/polls/views.py", line 16, in index
+    y = 10 / x
+ZeroDivisionError: division by zero
+[2018-09-02 11:52:15,689][Thread-1:123145396580352][task_id:django.request][log.py:228][ERROR][Internal Server Error: /polls/]
+Traceback (most recent call last):
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/kamihati/workspace/course/django/dj_1/polls/views.py", line 16, in index
+    y = 10 / x
+ZeroDivisionError: division by zero
+[2018-09-02 16:48:47,464][Thread-1:123145557110784][task_id:django.request][log.py:228][ERROR][Internal Server Error: /polls/]
+Traceback (most recent call last):
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/kamihati/workspace/py35v/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/kamihati/workspace/course/django/dj_1/polls/views.py", line 16, in index
+    y = 10 / x
+ZeroDivisionError: division by zero

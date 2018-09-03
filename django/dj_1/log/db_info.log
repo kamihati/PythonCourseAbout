@@ -1,0 +1,2 @@
+[sql:select sleep(3),question_text,pub_date from polls_question where id=1][duration:3.005934953689575][params:None]
+[sql:select sleep(3),question_text,pub_date from polls_question where id=1][duration:3.0055651664733887][params:None]
