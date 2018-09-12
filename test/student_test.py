@@ -49,9 +49,8 @@ def save_test(name, answer):
                 score[name]['error'].append(i + 1)
                 # score[name]['error'].append(dict(index=i, mistake=answer[i], currect=answers[i]))
         score[name]['total'] = result
-        
         with open(F_PATH, 'w+', encoding='utf8') as f:
-            f.write(json.dumps(score))
+            f.write(json.dumps(score).encode("utf8").decode("unicode_escape"))
         return True
 
 
