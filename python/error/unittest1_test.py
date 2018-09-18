@@ -8,6 +8,13 @@ from unittest1 import Dict
 
 # 编写单元测试时，我们需要编写一个测试类，从unittest.TestCase继承。
 class TestDict(unittest.TestCase):
+    
+    def setUp(self):
+        pass
+    
+    def tearDown(self):
+        pass
+    
     # 以test开头的方法就是测试方法，不以test开头的方法不被认为是测试方法，测试的时候不会被执行。
     def test_init(self):
         d = Dict(a=1, b='test')
