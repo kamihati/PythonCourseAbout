@@ -1,4 +1,4 @@
-"""demo1 URL Configuration
+"""demo_2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -14,20 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-from . import views as demo1_views
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path("", demo1_views.index, name='index'),
-    path("get_json/", demo1_views.get_json),
-    path('polls/', include('polls.urls')),
+    path('index',  views.index),
+    path('get_json', views.get_json),
+    path('post_json', views.post_json),
     path('admin/', admin.site.urls),
-    path("write/", demo1_views.write, name='write'),
-    path("read/", demo1_views.read, name='read'),
-    path('upload/', demo1_views.upload_file, name='upload_one'),
-    path('upload_m/', demo1_views.upload_m, name="upload_m"),
-    path("upload_success/", demo1_views.upload_success, name='upload_success'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+]

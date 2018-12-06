@@ -5,12 +5,22 @@
 	<title>Title</title>
 	{% load static %}
 	<script type="text/javascript" src="{% static "js/b.js" %}"></script>
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 
 </head>
 <body>
      <div>
 	     <a href="{{ MEDIA_URL }}js/xxx.txt" target="_blank" >的瑟瑟发抖</a>
-
+          <input type='button' value='请求' id="btn1" />
      </div>
+     <script type="text/javascript">
+     $("#btn1").click(function(){
+        $.post(location.href, {"xx": 33}, function(res){
+	         alert(res.aa);
+	     })
+     })
+
+
+     </script>
 </body>
 </html>

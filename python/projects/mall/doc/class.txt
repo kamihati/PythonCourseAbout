@@ -1,0 +1,215 @@
+本文档为详细设计文档。主要定义程序中可能用到的方法和常量
+
+常量。保存在配置文件中。不会被程序改动 config.py
+————————————
+BASE_DIR  程序所在的根目录
+USER_DATA_PATH  用户资料保存的文件路径
+COMMODITY_DATA_PATH 商品数据保存的文件路径
+COMMODITY_LOG_DATA_PATH 商品修改记录保存的文件路径（废弃）
+
+
+全局变量
+---------------------
+login_user = None  代表当前登录用户。默认为None为未登录。否则为User类实例
+
+
+类外函数。在入口文件中定义的全局函数
+------------------------
+show_command():
+	参数：无
+
+	作用：
+	    根据当前用户是否登录来决定输出的命令列表。并且接收一个输出的命令。
+        若不是约定的命令则提示命令错误并重新输入。否则接收命令后返回接收到的值。
+
+
+
+公共方法。在common.py中定义的公共方法
+--------------------------
+read_file(path):
+    参数：
+		path: 要读取的文件路径。若路径不存在则提示路径不存在
+
+    作用：读出指定路径的文件内容并返回
+
+
+write_file(path, content):
+    参数：
+        path: 要写入的文件路径
+        content: 要写入文件的内容
+    作用：
+        把内容写入指定的文件路径。若文件不存在则新建。若存在则覆盖其中的内容
+
+
+md5_encry(base_str, salt="&*(*!123_23$"):
+    参数：
+        base_str: 要被md5加密的字符串
+        salt: 盐。不传则使用默认值
+    作用：
+        使用md5加密指定的字符串并返回
+
+make_commodity_no(commodity_type):
+    参数：
+        commodity_type: 类型编号
+    作用：
+        根据类别和当前时间生成新的商品编号
+        格式为：类别编号+时间戳+随机6位数。例如书籍类商品编号可能为:BOK1537685746666666；
+
+
+类定义
+————————————————————————
+User 用户类。
+============
+类变量
+user_list: 用于保存当前所有已注册的用户资料。任何使用使用此变量都应能得到最新的用户列表。
+    所以。在新增和修改用户后要实时更新此列表并保存到文件。在打开程序时需要从文件读取已保存的用户写入此变量
+
+实例变量
+id: int ,用户编号。自动生成。唯一。纯数字
+user_id: str, 用户账号。首字符为字母。由字母和数字组成。最小长度为6。最大长度为12。唯一。可用作用户查询
+user_name: str, 用户姓名。至少两个字。最多20个字
+password: str, 加密后的密码
+question: str, 密码提示问题
+answer: str, 密码提示问题答案
+balance: float, 余额。最小为0。最多两位精度。
+reg_time: datetime,注册时间。
+
+静态方法
+show_user(user_id=None)
+    参数：
+        user_id: 默认为None，查看所有已注册用户。否则查看指定用户的资料
+
+    作用：遍历用户列表。把用户信息格式化为可读的状态
+
+get_user(user_id):
+    参数：
+        user_id: str,不能为空。对应实例变量user_id
+    作用：
+        从本类的类变量user_list中查找出指定user_id的用户实例。
+        查到了则返回此实例。查不到则返回None
+
+save(users):
+    参数：
+        users: 用户列表。元素为用户实例
+    作用：
+        保存用户列表到文件
+
+read_user_from_file():
+    参数：无
+    作用：
+        从用户的数据文件中读取用户数据并反序列化为 User类实例的列表
+
+实例方法
+
+money_in(self, money):
+    参数:
+        money: 要充值的金额。float,最小为0.01,最大为100000
+    作用:
+       向当前用户的余额重置。把指定的金额累加到实例变量balance上。设定后需要保存到用户文件
+
+show_detail(self):
+    参数：无
+    作用：
+       把当前实例的详细资料格式化为可读性较强的字符串print出去
+
+
+
+commodity 商品类
+=========
+
+类变量
+commodity_list: list,元素为商品类实例。保存所有的商品.商品新增和修改后要对应修改此列表。
+            并把列表序列化后覆盖写入data/commodity.txt文件
+
+实例变量
+id: int,从1开始的数字。唯一
+commodity_no: str,商品编号。商品添加时自动生成。唯一。可据此查询商品信息，不可为空。
+     格式为：类别编号+时间戳+随机6位数。例如书籍类商品编号可能为:BOK1537685746666666；
+     使用公有方法make_commodity_no生成
+commodity_name: str, 商品名称，不能为空
+price:float,至少为0.01。精确到小数点后两位。商品单价
+stock: int, 商品库存，最小为0，最大9999
+commodity_type: str, 分类编号。commodity_type.txt中定义的对应类别的编号
+user_id: str, 发布人的user_id.不能为空
+add_time: datetime,添加时间
+edit_time: datetime,编辑时间
+detail: str, 商品描述
+edit_log: list,元素为字典。 dict(edit_time:修改时间, content:修改内容描述)。
+
+
+实例方法
+edit(self, *, commodity_name=None, price=0.0, stock=0, commodity_type=None, detail=None):
+    参数：
+        命名关键字参数
+        commodity_name:商品名称。为None则不修改
+        price： 单价。为None则不修改。不能小于0.01
+        stock: 库存。为None则不修改。最小为0
+        commodity_type: 商品类别，为None则不修改
+        detail: 商品描述，为None则不修改
+
+    作用：
+       修改商品的指定属性
+       并格式化一个修改内容描述保存到商品的edit_log中
+
+
+show_log(self):
+    参数:无
+
+    作用：print该商品的修改记录
+
+show_detail(self):
+    参数：无
+
+    作用：print该商品的详细信息
+        至少显示商品编号。商品名称。商品单价。商品库存。商品分类编号。
+        商品分类编号名称。商品描述。添加日期。最后修改日期
+
+静态方法
+get_user_commodity(commodity_list, user_id):
+    参数：
+        commodity_list: list,元素为商品实例，已发布的商品列表
+        user_id: str, 发布人的user_id
+    作用：
+        返回指定user_id的商品列表,元素为商品实例
+
+
+get_commodity(commodity_list, commodity_id):
+    参数：
+        commodity_list: list,元素为商品实例，已发布的商品列表
+        commodity_id: int, 商品id,唯一
+    作用：
+        返回指定commodity_id的商品实例。查不到则为None
+
+
+save(commoditys):
+    参数：
+        commoditys: list,商品列表。元素为商品实例
+    作用：
+        把商品列表保存到商品文件data/commodity.txt
+
+read_commodity_from_file():
+    参数： 无
+
+    作用：从data/commodity.txt中读取商品数据并反序列化为商品实例的列表 并返回
+
+
+
+
+
+
+CommodityLog类。商品修改记录(废弃。此类的定义会提高逻辑的复杂度。在commodity类的实例变量edit_log中保存修改记录
+类变量：
+  _log_list = []   保护变量。存储指定商品的
+
+实例变量
+  commodity_no: str, 商品编号，对应 commodity类的commodity_no变量
+  edit_time: datetime, 商品编辑时间，
+  content: str, 修改内容描述
+
+静态方法
+show(commodity_no):
+    参数:
+        commodity_no: 商品编号
+
+    作用：根据商品编号查询出对应的商品修改记录列表
+
